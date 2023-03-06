@@ -1,9 +1,11 @@
-#!/usr/bin/bash python3
+#!/usr/bin/env python3
 """
-pycodestyle checker
+Pycodestyle checker
+
 """
-class Test:
-"""
-"""
-pass
+
+class Pycodestyle():
+    """
+    """
+    pass
 
