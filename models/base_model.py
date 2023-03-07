@@ -20,8 +20,8 @@ class BaseModel:
         self.updated_at = datetime.now()
     def to_dict(self):
         dic = dict(self.__dict__)
-        dic = {'__class_': self.__class__.name
+        dic.update({'__class__': self.__class__.name
                 'created_at': isoformat()
                 'updated_at': isoformat()
-                }
+                })
         return dic
