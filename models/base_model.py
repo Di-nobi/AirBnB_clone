@@ -17,10 +17,13 @@ class BaseModel:
             if Kwargs is not None:
                 if '__class__' in kwargs:
                     continue
+    def __setattr__(self, name, value):
+        # Name and Value attribute to be set here ...
     def __str__(self):
         return "[{}] ({}) {}".format(self.__class__.name, self.id, self.__dict__)
     def save(self):
         self.updated_at = datetime.now()
+
     def to_dict(self):
         dic = dict(self.__dict__)
         dic.update({'__class__': self.__class__.name
