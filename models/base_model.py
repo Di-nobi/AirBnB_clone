@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 A class model that defines all common attributes/methods
 for other class
@@ -7,10 +7,10 @@ for other class
 import uuid
 from datetime import datetime
 
-class BaseModel:
+class BaseModel():
     """BaseModel class to be inherited by other classes"""
     def __init__(self, *args, **kwargs):
-        if kwargs is not None:
+        if kwargs is not None and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if kwargs == '__class__':
                     continue
@@ -24,15 +24,15 @@ class BaseModel:
             self.updated_at = datetime.now()
     def __str__(self):
         """Format `self` for output"""
-        return "[{}] ({}) {}".format(self.__class__.name, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
     def save(self):
         self.updated_at = datetime.now()
 
     def to_dict(self):
         """returns a dictionary containing all key/value pairs of __dict__"""
         dic = dict(self.__dict__.copy())
-        dic.update({'__class__': self.__class__.name
-                'created_at': isoformat()
-                'updated_at': isoformat()
+        dic.update({'__class__': self.__class__.__name__,
+                'created_at': self.created_at.isoformat(),
+                'updated_at': self.updated_at.isoformat()
                 })
         return dic
