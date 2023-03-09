@@ -6,10 +6,10 @@
  """
  import json
  import models
-
+ from 
  class FileStorage():
-     __file_path = str(file.json)
-     __objects = dict()
+     __file_path = "file.json"
+     __objects = {}
 
      def all(self):
          return self.__objects
@@ -18,9 +18,14 @@
          self.__objects[key] = obj
 
      def save(self):
-
-         with open('__file_path', 'w') as f:
-             dct = dict()
+         """ serializes __objects to the JSON file """
+         with open(self.__file_path, 'w') as f:
+             dct = {}
              for name, obj in self.__objects.items():
                  dct[name] = obj.to_dict()
              json.dump(dct, f)
+     def reload(self):
+           """ deserializes __objects to the JSON file """
+         try:
+             with open(self.__file_path, 'r') as f:
+                 jsdic = json.load(f.read())
