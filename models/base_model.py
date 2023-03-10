@@ -4,6 +4,7 @@ A class model that defines all common attributes/methods
 for other class
 
 """
+import models
 import uuid
 from datetime import datetime
 
