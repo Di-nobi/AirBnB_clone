@@ -1,11 +1,5 @@
-#!/usr/bin/env python3
-"""
-Pycodestyle checker
+#!/usr/bin/python3
 
-"""
-
-class Pycodestyle():
-    """
-    """
-    pass
-
+name = 'John Carter'
+first_name, last_name = name.split()
+print(last_name, first_name, sep=', ')
