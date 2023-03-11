@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""Saves objects in file to FileStorage class attribute __objects"""
+"""Module for FileStorage autoinit."""
+
 from models.engine.file_storage import FileStorage
-
-
 storage = FileStorage()
 storage.reload()
