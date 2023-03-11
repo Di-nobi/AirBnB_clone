@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Saves objects in file to FileStorage class attribute __objects"""
+"""Import FileStorage and read existing data into `storage` variable"""
 from models.engine.file_storage import FileStorage
 
 
