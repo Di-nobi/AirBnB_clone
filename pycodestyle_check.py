@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 
-pass
+print("Hello, world!")
