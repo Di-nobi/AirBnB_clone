@@ -1,4 +1,5 @@
 #!/usr/bin/python3
 
-name = 'Abraham'
-print(name)
+name = 'John Carter'
+first_name, last_name = name.split()
+print(last_name, first_name, sep=', ')
