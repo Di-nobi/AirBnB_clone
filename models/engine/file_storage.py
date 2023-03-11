@@ -29,16 +29,6 @@ class FileStorage:
 
     def new(self, obj):
 
-        key = obj.__class__.__name__ + "." + obj.id
-        self.__objects[key] = obj
-
-    def save(self):
-        """ serializing to get json files """
-        with open(FileStorage.__file_path, "w") as f:
-            dct = {}
-            for name, obj in self.__objects.items():
-                dct[name] = obj.to_dict()
-                json.dump(dct, f)
         """new method which adds object to __objects dict
         Args:
             obj (object): object to add to dictionary
@@ -61,12 +51,7 @@ class FileStorage:
     def reload(self):
         """reload method deserializes the JSON file to __objects"""
         try:
-            with open(FileStorage.__file_path) as f:
-                dctsr = json.load(f)
-                for x in dctsr.values():
-                    cls_name = x["__class__"]
-                    del x["__class__"]
-                    self.new(eval(cls_name)(**x))
+
             with open(self.__file_path, 'r', encoding='utf-8') as f:
                 json_dict = json.load(f)
                 for obj_dict in json_dict.values():
